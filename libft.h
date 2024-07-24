@@ -6,17 +6,23 @@
 /*   By: scarlucc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:46:56 by scarlucc          #+#    #+#             */
-/*   Updated: 2023/10/09 14:47:08 by scarlucc         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:06:39 by scarlucc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 # include <stddef.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <fcntl.h>
 
 int			ft_atoi(const char *nptr);
 void		ft_bzero(void *s, size_t n);
@@ -52,7 +58,12 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
-
+//get_next_line.c
+char		*ft_strdup_mod(const char *s);
+char		*get_next_line(int fd);
+char		*read_line(int fd, char *new, char *static_buffer);
+char		*get_output(char *output);
+//Libft_bonus
 typedef struct s_list
 {
 	void			*content;
